@@ -103,3 +103,11 @@ HCHB_FHIR/
 ├── README.md
 └── requirements.txt
 ```
+
+## Disclaimer
+
+No EPHI (Electronic Protected Health Information) is stored or maintained in this repository. This repo is for reference only. The goal of this project is to support interoperability and provide patients with the most optimal care.
+
+## License
+
+See [LICENSE](LICENSE) for details.
