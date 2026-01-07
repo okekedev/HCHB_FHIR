@@ -18,18 +18,76 @@ FHIR API integration project for HCHB.
    pip install -r requirements.txt
    ```
 
-4. Copy `.env.example` to `.env` and add your credentials:
-
+4. Copy `.env.example` to `.env` and add your credentials.
 
 ## Usage
 
-Run a patient API sample:
 ```bash
 cd apis/patients
 python patients.py
 ```
 
-This fetches one page of patients and exports to `samples/` folder as JSON.
+## Roadmap
+
+<details>
+<summary><strong>Patient API</strong> ✅</summary>
+
+### Search Parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| _id | Logical resource ID |
+| identifier | Patient identifier (MRN) |
+| active | Status filter (true/false) |
+| name | Full name search |
+| family | Last name |
+| given | First name |
+| telecom | Phone number |
+| email | Email address |
+| gender | male, female, other, unknown |
+| birthdate | Date of birth |
+| address | General address search |
+| address-city | City |
+| address-state | State |
+| address-postalcode | ZIP code |
+| organization | Managing organization reference |
+
+### Defaults
+
+| Setting | Value |
+|---------|-------|
+| page_size | 100 records per page |
+| max_pages | 1 |
+| timeout | 120 seconds |
+| active | true (only active patients) |
+
+### Notes
+
+- This API does not support generic date filtering
+- Maximum of 5000 records can be returned per request regardless of pagination
+
+</details>
+
+<details>
+<summary><strong>Workers API</strong> 🚧</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary><strong>Organizations API</strong> 🚧</summary>
+
+Coming soon.
+
+</details>
+
+<details>
+<summary><strong>Appointments API</strong> 🚧</summary>
+
+Coming soon.
+
+</details>
 
 ## Project Structure
 
@@ -37,30 +95,11 @@ This fetches one page of patients and exports to `samples/` folder as JSON.
 HCHB_FHIR/
 ├── apis/
 │   └── patients/
-│       ├── patients.py      # Patient API functions
-│       ├── parameters.txt   # Available search parameters
+│       ├── patients.py
 │       └── samples/         # Output files (gitignored)
-├── .env                     # Environment variables (not tracked)
+├── .env                     # Credentials (not tracked)
 ├── .env.example
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 ```
-
-## Configuration
-
-Environment variables in `.env.example'
-
-## Defaults
-
-- `page_size`: 100 records per page
-- `max_pages`: 1
-- `timeout`: 120 seconds
-- `active`: true (only active patients)
-
-See `apis/patients/parameters.txt` for available search parameters.
-
-## Notes
-
-- Maximum of 5000 records can be returned per request regardless of pagination
-- Sample outputs are excluded from version control
