@@ -106,7 +106,7 @@ HCHB_FHIR/
 
 ## Disclaimer
 
-No EPHI (Electronic Protected Health Information) is stored or maintained in this repository. This repo is for reference only. The goal of this project is to support interoperability and provide patients with the most optimal care.
+No EPHI (Electronic Protected Health Information) is stored or maintained in this repository. This repo is for reference only. The goal of this project is to support interoperability directly realted to optimizing patient care.
 
 ## License
 
