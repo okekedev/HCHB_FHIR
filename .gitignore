@@ -38,3 +38,9 @@ Thumbs.db
 
 # Sample output files
 **/samples/
+
+# Tests folder
+tests/
+
+# Use cases output
+use_cases/output/

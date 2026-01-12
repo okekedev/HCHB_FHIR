@@ -27,10 +27,44 @@ cd apis/patients
 python patients.py
 ```
 
-## Roadmap
+## Use Cases
+
+Patient-centric queries that demonstrate common workflows.
 
 <details>
-<summary><strong>Patient API</strong> ✅</summary>
+<summary><strong>Get Patient Payor</strong> ✅</summary>
+
+Retrieves the payor organization for a patient via the Account resource.
+
+### Flow
+
+```
+Patient → Account (by subject) → guarantor → Organization (Payor)
+```
+
+### Usage
+
+```bash
+python use_cases/get_patient_payor.py
+python use_cases/get_patient_payor.py --patient_id <patient_id>
+```
+
+### Parameters
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| --patient_id | Patient FHIR ID | Fetches sample patient if not provided |
+
+### Output
+
+Returns payor details including ID, name, type, phone, and address.
+
+</details>
+
+## APIs
+
+<details>
+<summary><strong>Patient API</strong></summary>
 
 ### Search Parameters
 
@@ -68,27 +102,6 @@ python patients.py
 
 </details>
 
-<details>
-<summary><strong>Workers API</strong> 🚧</summary>
-
-Coming soon.
-
-</details>
-
-<details>
-<summary><strong>Organizations API</strong> 🚧</summary>
-
-Coming soon.
-
-</details>
-
-<details>
-<summary><strong>Appointments API</strong> 🚧</summary>
-
-Coming soon.
-
-</details>
-
 ## Project Structure
 
 ```
@@ -97,6 +110,9 @@ HCHB_FHIR/
 │   └── patients/
 │       ├── patients.py
 │       └── samples/         # Output files (gitignored)
+├── use_cases/
+│   ├── get_patient_payor.py
+│   └── output/              # Output files (gitignored)
 ├── .env                     # Credentials (not tracked)
 ├── .env.example
 ├── .gitignore
